@@ -1,0 +1,17 @@
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\TheseusTest.deps.json
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\TheseusTest.runtimeconfig.json
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\TheseusTest.runtimeconfig.dev.json
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\TheseusTest.dll
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\TheseusTest.pdb
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\Assignment-2_Theseus-and-Minotaur.dll
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\bin\Debug\netcoreapp2.1\Assignment-2_Theseus-and-Minotaur.pdb
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.csprojAssemblyReference.cache
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.csproj.CoreCompileInputs.cache
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.AssemblyInfoInputs.cache
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.AssemblyInfo.cs
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.csproj.CopyComplete
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.dll
+D:\ActualDocuments\Ara2020\BCDE222_C#\Assignment2\Assignment-2_Theseus-and-Minotaur\TheseusTest\obj\Debug\netcoreapp2.1\TheseusTest.pdb
