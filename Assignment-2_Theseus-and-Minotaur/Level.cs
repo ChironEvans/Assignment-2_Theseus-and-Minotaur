@@ -57,13 +57,13 @@ namespace Assignment_2_Theseus_and_Minotaur
 
             Cursor newCursor;
             newCursor = new Cursor(specials[0][0], specials[0][1]);
-            FetchAt(newCursor).Minotaur = true;
+            //FetchAt(newCursor).Minotaur = true;
 
             newCursor = new Cursor(specials[1][0], specials[1][1]);
-            FetchAt(newCursor).Theseus = true;
+            //FetchAt(newCursor).Theseus = true;
 
              newCursor = new Cursor(specials[2][0], specials[2][1]);
-            FetchAt(newCursor).Exit = true;
+            //FetchAt(newCursor).Exit = true;
 
         }
 
@@ -77,48 +77,104 @@ namespace Assignment_2_Theseus_and_Minotaur
             switch (dir)
             {
                 case Moves.UP:
-                    return this.tryMoveUP(targetPos, dir);
+                    return TryMoveUP(targetPos, dir);
                 case Moves.DOWN:
-                    return this.tryMoveDOWN(targetPos, dir);
+                    return TryMoveDOWN(targetPos, dir);
                 case Moves.LEFT:
-                    return this.tryMoveLEFT(targetPos, dir);
+                    return TryMoveLEFT(targetPos, dir);
                 case Moves.RIGHT:
-                    return this.tryMoveRIGHT(targetPos, dir);
+                    return TryMoveRIGHT(targetPos, dir);
             }
             return false;
         }
 
-        public bool tryMoveUP(Cursor currentPos, Moves dir)
+        public bool TryMoveUP(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos - 1, currentPos.GetXPos);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
         }
 
-        public bool tryMoveDOWN(Cursor currentPos, Moves dir)
+        public bool TryMoveDOWN(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos + 1, currentPos.GetXPos);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
 
         }
 
-        public bool tryMoveLEFT(Cursor currentPos, Moves dir)
+        public bool TryMoveLEFT(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos, currentPos.GetXPos - 1);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
         }
 
-        public bool tryMoveRIGHT(Cursor currentPos, Moves dir)
+        public bool TryMoveRIGHT(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos, currentPos.GetXPos + 1);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
         }
-
         private bool DoMove(Cursor currentPos, Cursor targetCursor, Moves dir)
         {
-            return false;
+            if (!CheckCollision(currentPos, targetCursor, dir))
+            {
+                return false;
+            }
+            FloorTile currentTile = FetchAt(currentPos);
+            FloorTile moveTile = FetchAt(targetCursor);
 
+            Moveable toMove = currentTile.OnTile;
+
+            moveTile.OnTile = toMove;
+            currentTile.OnTile = null;
+            return true;
         }
 
+        private bool CheckCollision(Cursor currentPos, Cursor targetCursor, Moves dir)
+        {
+            bool moveImpeded = true;
+            FloorTile currentTile = FetchAt(currentPos);
+            FloorTile moveTile = FetchAt(targetCursor);
+            if (currentPos.GetXPos - targetCursor.GetXPos != 0)
+            {
+                switch (currentPos.GetXPos - targetCursor.GetXPos)
+                {
+                    // Moving LtR
+                    case -1:
+                        if (currentTile.Right == false && moveTile.Left == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                    // Moving RtL
+                    case 1:
+                        if (currentTile.Left == false && moveTile.Right == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                switch (currentPos.GetYPos - targetCursor.GetYPos)
+                {
+                    // Moving Up
+                    case -1:
+                        if (currentTile.Top == false && moveTile.Bottom == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                    // Moving Down
+                    case 1:
+                        if (currentTile.Bottom == false && moveTile.Top == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                }
+            }
+            return moveImpeded;
 
+        }
     }
 }

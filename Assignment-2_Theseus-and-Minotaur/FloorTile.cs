@@ -9,8 +9,6 @@
         public bool Right;
         public bool Bottom;
         public bool Left;
-        public bool Minotaur;
-        public bool Theseus;
         public bool Exit;
 
         public FloorTile(int newX, int newY, bool[] walls)
@@ -26,5 +24,10 @@
         public string ToString => image.ToString();
 
         internal Moveable OnTile { get; set; }
+
+        public bool Minotaur => OnTile.GetType() == typeof(Minotaur);
+
+        public bool Theseus => OnTile.GetType() == typeof(Theseus);
+        
     }
 }

@@ -55,7 +55,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             }
             AllLevelNames = LevelNames;
         }
-        public List<String> LevelNames()
+        public List<string> LevelNames()
         {
             return AllLevelNames;
         }
