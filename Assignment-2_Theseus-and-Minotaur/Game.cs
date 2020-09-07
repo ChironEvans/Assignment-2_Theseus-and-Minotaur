@@ -29,9 +29,13 @@ namespace Assignment_2_Theseus_and_Minotaur
             CurrentLevel = AllMyLevels[i];
         }
 
-        public void MoveTheseus(Moves LEFT)
+        public void MoveTheseus(Moves dir)
         {
-            throw new NotImplementedException();
+            Cursor theseusPos = CurrentLevel.FindTheseus();
+            if (theseusPos.GetXPos >= 0 && theseusPos.GetYPos >=0)
+            {
+                CurrentLevel.MoveTarget(theseusPos, dir);
+            }
         }
 
         public void MoveMinotaur()

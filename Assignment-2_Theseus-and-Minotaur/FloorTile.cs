@@ -25,9 +25,28 @@
 
         internal Moveable OnTile { get; set; }
 
-        public bool Minotaur => OnTile.GetType() == typeof(Minotaur);
+        public bool Minotaur => CheckTile("M");
 
-        public bool Theseus => OnTile.GetType() == typeof(Theseus);
+        public bool Theseus => CheckTile("T");
         
+        private bool CheckTile(string type)
+        {
+            if (OnTile == null)
+            {
+                return false;
+            }
+            else
+            {
+                switch (type)
+                {
+                    case "T":
+                        return OnTile.GetType() == typeof(Theseus);
+                    case "M":
+                        return OnTile.GetType() == typeof(Minotaur);
+                    default:
+                        return false;
+                }
+            }
+        }
     }
 }

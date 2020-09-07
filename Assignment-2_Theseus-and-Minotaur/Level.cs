@@ -72,6 +72,21 @@ namespace Assignment_2_Theseus_and_Minotaur
             return (Square)LevelBoard[cursor.GetYPos,cursor.GetXPos];
         }
 
+        public Cursor FindTheseus()
+        {
+            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                {
+                    if (LevelBoard[i,j].Theseus)
+                    {
+                        return new Cursor(i, j);
+                    }
+                }
+            }
+            return new Cursor(-1, -1);
+        }
+
         public bool MoveTarget(Cursor targetPos, Moves dir)
         {
             switch (dir)
@@ -112,6 +127,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             Cursor targetPointer = new Cursor(currentPos.GetYPos, currentPos.GetXPos + 1);
             return DoMove(currentPos, targetPointer, dir);
         }
+
         private bool DoMove(Cursor currentPos, Cursor targetCursor, Moves dir)
         {
             if (!CheckCollision(currentPos, targetCursor, dir))
