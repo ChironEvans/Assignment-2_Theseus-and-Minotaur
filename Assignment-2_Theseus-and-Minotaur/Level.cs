@@ -56,22 +56,34 @@ namespace Assignment_2_Theseus_and_Minotaur
                 currY++;
             }
 
-            Cursor newCursor;
-            newCursor = new Cursor(specials[0][0], specials[0][1]);
-            //FetchAt(newCursor).Minotaur = true;
+            Cursor minoCursor;
+            minoCursor = new Cursor(specials[0][0], specials[0][1]);
+            FetchAt(minoCursor).OnTile = new Minotaur();
 
-            newCursor = new Cursor(specials[1][0], specials[1][1]);
-            //FetchAt(newCursor).Theseus = true;
+            Cursor theseusCursor;
+            int[][] specials2 = specials;
+            int shouldBeX = specials[1][0];
+            int shouldbeY = specials[1][1];
+            theseusCursor = new Cursor(specials[1][0], specials[1][1]);
+            string theseusPos = specials[1][0] + ", " + specials[1][1];
+            FetchAt(theseusCursor).OnTile = new Theseus();
+            FloorTile theseusTile = FetchAt(theseusCursor);
+            FloorTile fuckThis = theseusTile;
+            //newCursor = new Cursor(specials[2][0], specials[2][1]);
+            //FetchAt(newCursor).OnTile = new Exit();
 
-             newCursor = new Cursor(specials[2][0], specials[2][1]);
-            //FetchAt(newCursor).Exit = true;
+        }
 
+        internal Cursor FindExit()
+        {
+            return null;
         }
 
         public void MovePlus()
         {
             MoveCount++;
         }
+
         public Square FetchAt(Cursor cursor)
         {
             return (Square)LevelBoard[cursor.GetYPos,cursor.GetXPos];
@@ -83,13 +95,13 @@ namespace Assignment_2_Theseus_and_Minotaur
             {
                 for (int j = 0; j < LevelBoard.GetLength(1); j++)
                 {
-                    if (LevelBoard[i,j].Theseus)
+                    if (LevelBoard[i,j].Theseus == true)
                     {
-                        return new Cursor(i, j);
+                        return new Cursor(i,j);
                     }
                 }
             }
-            throw new TheseusNotExist();
+            return null;
         }
 
         public Cursor FindMinotaur()
@@ -98,27 +110,32 @@ namespace Assignment_2_Theseus_and_Minotaur
             {
                 for (int j = 0; j < LevelBoard.GetLength(1); j++)
                 {
-                    if (LevelBoard[i, j].Minotaur)
+                    if (LevelBoard[i,j].Minotaur)
                     {
-                        return new Cursor(i, j);
+                        return new Cursor(i,j);
                     }
                 }
             }
-            return new Cursor(-1, -1);
+            throw new MinoNotExist();
         }
 
-        public bool MoveTarget(Cursor targetPos, Moves dir)
+        public bool MoveTarget(Cursor currentPos, Moves dir)
         {
+            if (currentPos == null)
+            {
+                throw new ArgumentNullException(nameof(currentPos));
+            }
+
             switch (dir)
             {
                 case Moves.UP:
-                    return TryMoveUP(targetPos, dir);
+                    return TryMoveUP(currentPos, dir);
                 case Moves.DOWN:
-                    return TryMoveDOWN(targetPos, dir);
+                    return TryMoveDOWN(currentPos, dir);
                 case Moves.LEFT:
-                    return TryMoveLEFT(targetPos, dir);
+                    return TryMoveLEFT(currentPos, dir);
                 case Moves.RIGHT:
-                    return TryMoveRIGHT(targetPos, dir);
+                    return TryMoveRIGHT(currentPos, dir);
             }
             return false;
         }
@@ -150,25 +167,35 @@ namespace Assignment_2_Theseus_and_Minotaur
 
         private bool DoMove(Cursor currentPos, Cursor targetCursor, Moves dir)
         {
-            if (!CheckCollision(currentPos, targetCursor, dir))
+            if (CheckCollision(currentPos, targetCursor, dir))
             {
                 return false;
             }
-            FloorTile currentTile = FetchAt(currentPos);
-            FloorTile moveTile = FetchAt(targetCursor);
+            else
+            {
+                FloorTile currentTile = FetchAt(currentPos);
+                FloorTile moveTile = FetchAt(targetCursor);
 
-            Moveable toMove = currentTile.OnTile;
+                Moveable toMove = currentTile.OnTile;
 
-            moveTile.OnTile = toMove;
-            currentTile.OnTile = null;
-            return true;
+                moveTile.OnTile = toMove;
+                currentTile.OnTile = null;
+                return true;
+            }
         }
 
         internal bool CheckCollision(Cursor currentPos, Cursor targetCursor, Moves dir)
         {
             bool moveImpeded = true;
+            FloorTile moveTile;
             FloorTile currentTile = FetchAt(currentPos);
-            FloorTile moveTile = FetchAt(targetCursor);
+            try
+            {
+                moveTile = FetchAt(targetCursor);
+            } catch (IndexOutOfRangeException)
+            {
+                return true;
+            }
             if (currentPos.GetXPos - targetCursor.GetXPos != 0)
             {
                 switch (currentPos.GetXPos - targetCursor.GetXPos)
@@ -210,7 +237,6 @@ namespace Assignment_2_Theseus_and_Minotaur
                 }
             }
             return moveImpeded;
-
         }
     }
 }

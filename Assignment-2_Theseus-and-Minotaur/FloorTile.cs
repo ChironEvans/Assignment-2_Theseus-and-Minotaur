@@ -11,7 +11,7 @@
         public bool Left;
         public bool Exit;
 
-        public FloorTile(int newX, int newY, bool[] walls)
+        public FloorTile(int newY, int newX, bool[] walls)
         {
             xPos = newX;
             yPos = newY;

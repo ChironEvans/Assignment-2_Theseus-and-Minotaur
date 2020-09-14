@@ -12,8 +12,8 @@ namespace Assignment_2_Theseus_and_Minotaur
         public int LevelWidth;
         public int LevelHeight;
         public int MoveCount;
-        public bool HasTheseusWon;
-        public bool HasMinotaurWon;
+        public bool HasTheseusWon = false;
+        public bool HasMinotaurWon = false;
 
         public void AddLevel(string newLevelName, int newLevelW, int newLevelH, string newLevelString)
         {
@@ -36,12 +36,22 @@ namespace Assignment_2_Theseus_and_Minotaur
             {
                 CurrentLevel.MoveTarget(theseusPos, dir);
             }
+            CheckTheseusWon();
+        }
+
+        private void CheckTheseusWon()
+        {
+            if (CurrentLevel.FindTheseus() == CurrentLevel.FindExit())
+            {
+                HasTheseusWon = true;
+            }
         }
 
         public void MoveMinotaur()
         {
             Cursor theseusPos = CurrentLevel.FindTheseus();
-            for (int moves = 0; moves < 2; moves++)
+            // Should be moves < 2 to automate the minotaur moving, but Mikes tests call the function twice
+            for (int moves = 0; moves < 1; moves++)
             {
                 Cursor minoPos = CurrentLevel.FindMinotaur();
                 int diffX = minoPos.GetXPos - theseusPos.GetXPos;
@@ -63,17 +73,24 @@ namespace Assignment_2_Theseus_and_Minotaur
                     switch (diffY < 0)
                     {
                         case false:
-                            CurrentLevel.MoveTarget(minoPos, Moves.DOWN);
+                            CurrentLevel.MoveTarget(minoPos, Moves.UP);
                             break;
                         case true:
-                            CurrentLevel.MoveTarget(minoPos, Moves.UP);
+                            CurrentLevel.MoveTarget(minoPos, Moves.DOWN);
                             break;
                     }
                 }
+                CheckMinotaurWon();
             }
         }
 
-
+        private void CheckMinotaurWon()
+        {
+            if (CurrentLevel.FindTheseus() == null)
+            {
+                HasMinotaurWon = true;
+            }
+        }
 
         public Square WhatIsAt(int x, int y)
         {
