@@ -40,8 +40,40 @@ namespace Assignment_2_Theseus_and_Minotaur
 
         public void MoveMinotaur()
         {
-            throw new NotImplementedException();
+            Cursor theseusPos = CurrentLevel.FindTheseus();
+            for (int moves = 0; moves < 2; moves++)
+            {
+                Cursor minoPos = CurrentLevel.FindMinotaur();
+                int diffX = minoPos.GetXPos - theseusPos.GetXPos;
+                int diffY = minoPos.GetYPos - theseusPos.GetYPos;
+                if (diffY == 0)
+                {
+                    switch (diffX < 0)
+                    {
+                        case false:
+                            CurrentLevel.MoveTarget(minoPos, Moves.LEFT);
+                            break;
+                        case true:
+                            CurrentLevel.MoveTarget(minoPos, Moves.RIGHT);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (diffY < 0)
+                    {
+                        case false:
+                            CurrentLevel.MoveTarget(minoPos, Moves.DOWN);
+                            break;
+                        case true:
+                            CurrentLevel.MoveTarget(minoPos, Moves.UP);
+                            break;
+                    }
+                }
+            }
         }
+
+
 
         public Square WhatIsAt(int x, int y)
         {

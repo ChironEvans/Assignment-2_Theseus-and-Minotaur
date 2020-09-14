@@ -6,6 +6,7 @@ namespace Assignment_2_Theseus_and_Minotaur
     {
         public string LevelName;
         protected FloorTile[,] LevelBoard;
+        public int MoveCount = 0;
 
         public Level(string newLevelName, int newLevelW, int newLevelH, string newLevelString)
         {
@@ -67,6 +68,10 @@ namespace Assignment_2_Theseus_and_Minotaur
 
         }
 
+        public void MovePlus()
+        {
+            MoveCount++;
+        }
         public Square FetchAt(Cursor cursor)
         {
             return (Square)LevelBoard[cursor.GetYPos,cursor.GetXPos];
@@ -79,6 +84,21 @@ namespace Assignment_2_Theseus_and_Minotaur
                 for (int j = 0; j < LevelBoard.GetLength(1); j++)
                 {
                     if (LevelBoard[i,j].Theseus)
+                    {
+                        return new Cursor(i, j);
+                    }
+                }
+            }
+            throw new TheseusNotExist();
+        }
+
+        public Cursor FindMinotaur()
+        {
+            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                {
+                    if (LevelBoard[i, j].Minotaur)
                     {
                         return new Cursor(i, j);
                     }
@@ -144,7 +164,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             return true;
         }
 
-        private bool CheckCollision(Cursor currentPos, Cursor targetCursor, Moves dir)
+        internal bool CheckCollision(Cursor currentPos, Cursor targetCursor, Moves dir)
         {
             bool moveImpeded = true;
             FloorTile currentTile = FetchAt(currentPos);
