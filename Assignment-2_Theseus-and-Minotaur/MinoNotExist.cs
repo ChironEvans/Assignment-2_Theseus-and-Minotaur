@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace Assignment_2_Theseus_and_Minotaur
 {
     [Serializable]
-    internal class MinoNotExist : Exception
+    internal class ExitNotExist : Exception
     {
-        public MinoNotExist()
+        public ExitNotExist()
         {
         }
 
-        public MinoNotExist(string message) : base(message)
+        public ExitNotExist(string message) : base(message)
         {
         }
 
-        public MinoNotExist(string message, Exception innerException) : base(message, innerException)
+        public ExitNotExist(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected MinoNotExist(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ExitNotExist(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

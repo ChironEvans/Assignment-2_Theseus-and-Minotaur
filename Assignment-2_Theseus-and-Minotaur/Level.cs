@@ -69,14 +69,25 @@ namespace Assignment_2_Theseus_and_Minotaur
             FetchAt(theseusCursor).OnTile = new Theseus();
             FloorTile theseusTile = FetchAt(theseusCursor);
             FloorTile fuckThis = theseusTile;
-            //newCursor = new Cursor(specials[2][0], specials[2][1]);
-            //FetchAt(newCursor).OnTile = new Exit();
+            Cursor exitCursor;
+            exitCursor = new Cursor(specials[2][0], specials[2][1]);
+            FetchAt(exitCursor).TileExtra = new Exit();
 
         }
 
         internal Cursor FindExit()
         {
-            return null;
+            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                {
+                    if (LevelBoard[i, j].SpecialType == new Exit().Name)
+                    {
+                        return new Cursor(i, j);
+                    }
+                }
+            }
+            throw new ExitNotExist();
         }
 
         public void MovePlus()
@@ -116,8 +127,9 @@ namespace Assignment_2_Theseus_and_Minotaur
                     }
                 }
             }
-            throw new MinoNotExist();
+            throw new ExitNotExist();
         }
+
 
         public bool MoveTarget(Cursor currentPos, Moves dir)
         {

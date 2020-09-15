@@ -41,7 +41,9 @@ namespace Assignment_2_Theseus_and_Minotaur
 
         private void CheckTheseusWon()
         {
-            if (CurrentLevel.FindTheseus() == CurrentLevel.FindExit())
+            Cursor theseusPos = CurrentLevel.FindTheseus();
+            Cursor exitPos = CurrentLevel.FindExit();
+            if (theseusPos.GetXPos == exitPos.GetXPos && theseusPos.GetYPos == exitPos.GetYPos)
             {
                 HasTheseusWon = true;
             }

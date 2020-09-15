@@ -1,4 +1,6 @@
-﻿namespace Assignment_2_Theseus_and_Minotaur
+﻿using System;
+
+namespace Assignment_2_Theseus_and_Minotaur
 {
     public abstract class FloorTile
     {
@@ -25,10 +27,23 @@
 
         internal Moveable OnTile { get; set; }
 
+        internal Special TileExtra { get; set; }
+
         public bool Minotaur => CheckTile("M");
 
         public bool Theseus => CheckTile("T");
-        
+
+        public string SpecialType => GetTileName();
+
+        private string GetTileName()
+        {
+            if (TileExtra != null)
+            {
+                return TileExtra.Name;
+            }
+            return null;
+        }
+
         private bool CheckTile(string type)
         {
             if (OnTile == null)
