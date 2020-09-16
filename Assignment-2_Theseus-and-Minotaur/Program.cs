@@ -51,7 +51,31 @@ namespace Assignment_2_Theseus_and_Minotaur
             Console.WriteLine($"CurrentLevel: {game.CurrentLevelName}.{ game.LevelWidth} x { game.LevelHeight}");
             Console.WriteLine(game);
 
+
+            //My Code
+            game.AddLevel("ThesesusIn3by3", 3, 3,
+            "0000 0101 0202"
+            + " 1111 1001 1100"
+            + " 1001 0000 0100"
+            + " 0011 0010 0110");
+            game.SetLevel("ThesesusIn3by3");
+
+            game.MoveTheseus(Moves.UP);
+            Square origin = game.WhatIsAt(1, 1);
+            Square destination = game.WhatIsAt(0, 1);
+            bool[] expectedPresence = { false, true };
+            bool[] actualPresence = { origin.Theseus, destination.Theseus };
+            Square targetSquare = game.WhatIsAt(0,1);
+            Console.WriteLine(targetSquare);
+
+
+
+
+
             game.SetLevel("*** complex game");
+
+            
+
             Console.WriteLine("Start - Theseus wins complex game");
             Console.WriteLine(game);
             Console.WriteLine($"CurrentLevel: {game.CurrentLevelName}.{ game.LevelWidth} x { game.LevelHeight}");

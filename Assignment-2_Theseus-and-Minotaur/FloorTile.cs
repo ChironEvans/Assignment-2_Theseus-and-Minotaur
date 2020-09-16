@@ -11,7 +11,7 @@ namespace Assignment_2_Theseus_and_Minotaur
         public bool Right;
         public bool Bottom;
         public bool Left;
-        public bool Exit;
+        public bool Exit => GetTileName() == new Exit().Name;
 
         public FloorTile(int newY, int newX, bool[] walls)
         {

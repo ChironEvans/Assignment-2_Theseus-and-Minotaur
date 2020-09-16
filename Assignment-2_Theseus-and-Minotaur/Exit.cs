@@ -2,6 +2,9 @@
 {
     internal class Exit : Special
     {
-        new string Name = "Exit";
+        public Exit()
+        {
+            Name = "Exit";
+        }
     }
 }
