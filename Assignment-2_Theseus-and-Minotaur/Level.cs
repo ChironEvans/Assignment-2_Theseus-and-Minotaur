@@ -6,11 +6,15 @@ namespace Assignment_2_Theseus_and_Minotaur
     {
         public string LevelName;
         protected FloorTile[,] LevelBoard;
+        public int LevelW;
+        public int LevelH;
 
         public Level(string newLevelName, int newLevelW, int newLevelH, string newLevelString)
         {
             LevelName = newLevelName;
             LevelBoard = new FloorTile[newLevelH, newLevelW];
+            LevelW = newLevelW;
+            LevelH = newLevelH;
             FillLevel(newLevelW, newLevelH, newLevelString);
         }
 
@@ -30,10 +34,10 @@ namespace Assignment_2_Theseus_and_Minotaur
                 specials[i/step] = specialCoords;
             }
             int currY = 0;
-            for (int i = specialsMax * step - 1; i < newLevelString.Length; i += step*newLevelW)
+            for (int i = (specialsMax * step) - 1; i < newLevelString.Length; i += step*newLevelW)
             {
                 string row = newLevelString.Substring(i, (step * newLevelW));
-                for (int s = 0; s < step * newLevelW; s += step)
+                for (int s = 1; s < step * newLevelW; s += step)
                 {
                     string curr = row.Substring(s, 4);
                     bool[] currWalls = new bool[4];
@@ -55,70 +59,196 @@ namespace Assignment_2_Theseus_and_Minotaur
                 currY++;
             }
 
-            Cursor newCursor;
-            newCursor = new Cursor(specials[0][0], specials[0][1]);
-            FetchAt(newCursor).Minotaur = true;
+            Cursor minoCursor;
+            minoCursor = new Cursor(specials[0][0], specials[0][1]);
+            FetchAt(minoCursor).OnTile = new Minotaur();
 
-            newCursor = new Cursor(specials[1][0], specials[1][1]);
-            FetchAt(newCursor).Theseus = true;
+            Cursor theseusCursor;
+            theseusCursor = new Cursor(specials[1][0], specials[1][1]);
+            if (FetchAt(theseusCursor).OnTile == null)
+            {
+                FetchAt(theseusCursor).OnTile = new Theseus();
+            }
 
-             newCursor = new Cursor(specials[2][0], specials[2][1]);
-            FetchAt(newCursor).Exit = true;
+            Cursor exitCursor;
+            exitCursor = new Cursor(specials[2][0], specials[2][1]);
+            FetchAt(exitCursor).TileExtra = new Exit();
 
         }
+
+        internal Cursor FindExit()
+        {
+            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                {
+                    if (LevelBoard[i, j].SpecialType == new Exit().Name)
+                    {
+                        return new Cursor(i, j);
+                    }
+                }
+            }
+            throw new ExitNotExist();
+        }
+
+        
 
         public Square FetchAt(Cursor cursor)
         {
             return (Square)LevelBoard[cursor.GetYPos,cursor.GetXPos];
         }
 
-        public bool MoveTarget(Cursor targetPos, Moves dir)
+        public Cursor FindTheseus()
         {
+            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                {
+                    if (LevelBoard[i,j].Theseus == true)
+                    {
+                        return new Cursor(i,j);
+                    }
+                }
+            }
+            return null;
+        }
+
+        public Cursor FindMinotaur()
+        {
+            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                {
+                    if (LevelBoard[i,j].Minotaur)
+                    {
+                        return new Cursor(i,j);
+                    }
+                }
+            }
+            throw new ExitNotExist();
+        }
+
+
+        public bool MoveTarget(Cursor currentPos, Moves dir)
+        {
+            if (currentPos == null)
+            {
+                throw new ArgumentNullException(nameof(currentPos));
+            }
+
             switch (dir)
             {
                 case Moves.UP:
-                    return this.tryMoveUP(targetPos, dir);
+                    return TryMoveUP(currentPos, dir);
                 case Moves.DOWN:
-                    return this.tryMoveDOWN(targetPos, dir);
+                    return TryMoveDOWN(currentPos, dir);
                 case Moves.LEFT:
-                    return this.tryMoveLEFT(targetPos, dir);
+                    return TryMoveLEFT(currentPos, dir);
                 case Moves.RIGHT:
-                    return this.tryMoveRIGHT(targetPos, dir);
+                    return TryMoveRIGHT(currentPos, dir);
+                case Moves.PAUSE:
+                    return true;
             }
             return false;
         }
 
-        public bool tryMoveUP(Cursor currentPos, Moves dir)
+        public bool TryMoveUP(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos - 1, currentPos.GetXPos);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
         }
 
-        public bool tryMoveDOWN(Cursor currentPos, Moves dir)
+        public bool TryMoveDOWN(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos + 1, currentPos.GetXPos);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
 
         }
 
-        public bool tryMoveLEFT(Cursor currentPos, Moves dir)
+        public bool TryMoveLEFT(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos, currentPos.GetXPos - 1);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
         }
 
-        public bool tryMoveRIGHT(Cursor currentPos, Moves dir)
+        public bool TryMoveRIGHT(Cursor currentPos, Moves dir)
         {
             Cursor targetPointer = new Cursor(currentPos.GetYPos, currentPos.GetXPos + 1);
-            return this.DoMove(currentPos, targetPointer, dir);
+            return DoMove(currentPos, targetPointer, dir);
         }
 
         private bool DoMove(Cursor currentPos, Cursor targetCursor, Moves dir)
         {
-            return false;
+            if (CheckCollision(currentPos, targetCursor, dir))
+            {
+                return false;
+            }
+            else
+            {
+                FloorTile currentTile = FetchAt(currentPos);
+                FloorTile moveTile = FetchAt(targetCursor);
 
+                Moveable toMove = currentTile.OnTile;
+
+                moveTile.OnTile = toMove;
+                currentTile.OnTile = null;
+                return true;
+            }
         }
 
-
+        internal bool CheckCollision(Cursor currentPos, Cursor targetCursor, Moves dir)
+        {
+            bool moveImpeded = true;
+            FloorTile moveTile;
+            FloorTile currentTile = FetchAt(currentPos);
+            try
+            {
+                moveTile = FetchAt(targetCursor);
+            } catch (IndexOutOfRangeException)
+            {
+                return true;
+            }
+            if (currentPos.GetXPos - targetCursor.GetXPos != 0)
+            {
+                switch (currentPos.GetXPos - targetCursor.GetXPos)
+                {
+                    // Moving LtR
+                    case -1:
+                        if (currentTile.Right == false && moveTile.Left == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                    // Moving RtL
+                    case 1:
+                        if (currentTile.Left == false && moveTile.Right == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                switch (currentPos.GetYPos - targetCursor.GetYPos)
+                {
+                    // Moving Up
+                    case 1:
+                        if (currentTile.Top == false && moveTile.Bottom == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                    // Moving Down
+                    case -1:
+                        if (currentTile.Bottom == false && moveTile.Top == false)
+                        {
+                            moveImpeded = false;
+                        }
+                        break;
+                }
+            }
+            return moveImpeded;
+        }
     }
 }

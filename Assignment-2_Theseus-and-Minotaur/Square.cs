@@ -2,7 +2,7 @@
 {
     public class Square : FloorTile
     {
-        public Square(int newX, int newY, bool[] walls) : base(newX, newY, walls)
+        public Square(int newY, int newX, bool[] walls) : base(newY, newX, walls)
         {
         }
     }
