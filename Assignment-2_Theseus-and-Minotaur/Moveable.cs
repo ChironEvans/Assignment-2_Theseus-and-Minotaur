@@ -1,6 +1,7 @@
 ﻿namespace Assignment_2_Theseus_and_Minotaur
 {
-    internal class Moveable
+    internal abstract class Moveable
     {
+        internal char Symbol;
     }
 }

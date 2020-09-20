@@ -2,5 +2,6 @@
 {
     internal class Minotaur : Moveable
     {
+        internal char Symbol = 'M';
     }
 }
