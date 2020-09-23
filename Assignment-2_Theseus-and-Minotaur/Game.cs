@@ -4,6 +4,7 @@ namespace Assignment_2_Theseus_and_Minotaur
 {
     public class Game
     {
+        // Initialize member variables
         internal List<Level> AllMyLevels = new List<Level>();
         internal Level CurrentLevel;
         public List<string> AllLevelNames = new List<string>();
@@ -15,6 +16,7 @@ namespace Assignment_2_Theseus_and_Minotaur
         public bool HasTheseusWon = false;
         public bool HasMinotaurWon = false;
 
+        // Add a Level
         public void AddLevel(string newLevelName, int newLevelW, int newLevelH, string newLevelString)
         {
             Level level = new Level(newLevelName, newLevelW, newLevelH, newLevelString);
@@ -24,6 +26,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             LevelCount++;
         }
 
+        // Set a level as current
         public void SetLevel(string levelName)
         {
             if (AllLevelNames.Contains(levelName))
@@ -37,7 +40,8 @@ namespace Assignment_2_Theseus_and_Minotaur
                 CheckMinotaurWon();
             }
         }
-
+        
+        // Increment the move count
         public void MovePlus()
         {
             MoveCount++;
@@ -57,6 +61,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             CheckTheseusWon();
         }
 
+        // Move theseus
         private void CheckTheseusWon()
         {
             Cursor theseusPos = CurrentLevel.FindTheseus();
@@ -75,6 +80,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             }
         }
 
+        // Move the minotaur
         public void MoveMinotaur()
         {
             Cursor theseusPos = CurrentLevel.FindTheseus();
@@ -118,6 +124,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             }
         }
 
+        // Check whether the minotaur has killed theseus
         private void CheckMinotaurWon()
         {
             Cursor theseusPos = CurrentLevel.FindTheseus();
@@ -131,6 +138,7 @@ namespace Assignment_2_Theseus_and_Minotaur
             }
         }
 
+        // Find what is at a pair of coordinates
         public Square WhatIsAt(int y, int x)
         {
             Cursor newCursor = new Cursor(y,x);
@@ -147,9 +155,12 @@ namespace Assignment_2_Theseus_and_Minotaur
             }
             AllLevelNames = LevelNames;
         }
+
+        // Get all the level names
         public List<string> LevelNames()
         {
             return AllLevelNames;
         }
     }
+    // Having a quota for number of comments encourages bad practices
 }
