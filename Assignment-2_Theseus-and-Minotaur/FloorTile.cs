@@ -22,8 +22,8 @@ namespace Assignment_2_Theseus_and_Minotaur
             Bottom = walls[2];
             Left = walls[3];
         }
-        new
-        public string ToString => image.ToString();
+        
+        public new virtual string ToString => image.ToString();
 
         internal Moveable OnTile { get; set; }
 
