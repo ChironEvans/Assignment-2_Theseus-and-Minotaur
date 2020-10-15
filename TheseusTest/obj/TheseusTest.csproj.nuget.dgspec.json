@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\TheseusTest\\TheseusTest.csproj": {}
+  },
+  "projects": {
+    "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur.csproj",
+        "projectName": "Assignment-2_Theseus-and-Minotaur",
+        "projectPath": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur.csproj",
+        "packagesPath": "C:\\Users\\Chiron Evans\\.nuget\\packages\\",
+        "outputPath": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Chiron Evans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\TheseusTest\\TheseusTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\TheseusTest\\TheseusTest.csproj",
+        "projectName": "TheseusTest",
+        "projectPath": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\TheseusTest\\TheseusTest.csproj",
+        "packagesPath": "C:\\Users\\Chiron Evans\\.nuget\\packages\\",
+        "outputPath": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\TheseusTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Chiron Evans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur.csproj": {
+                "projectPath": "D:\\ActualDocuments\\Ara2020\\BCDE222_C#\\Assignment2\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur\\Assignment-2_Theseus-and-Minotaur.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,2 +1,22 @@
 
 *.cache
+.vs/Assignment-2_Theseus-and-Minotaur/v15/.suo
+.vs/Assignment-2_Theseus-and-Minotaur/DesignTimeBuild/.dtbcache
+.vs/Assignment-2_Theseus-and-Minotaur/DesignTimeBuild/.dtbcache
+.vs/Assignment-2_Theseus-and-Minotaur/v15/.suo
+.vs/Assignment-2_Theseus-and-Minotaur/v15/Server/sqlite3/storage.ide-shm
+.vs/Assignment-2_Theseus-and-Minotaur/v15/Server/sqlite3/storage.ide-wal
+Assignment-2_Theseus-and-Minotaur/obj/Assignment-2_Theseus-and-Minotaur.csproj.nuget.cache
+Assignment-2_Theseus-and-Minotaur/obj/Assignment-2_Theseus-and-Minotaur.csproj.nuget.g.props
+Assignment-2_Theseus-and-Minotaur/obj/Assignment-2_Theseus-and-Minotaur.csproj.nuget.g.targets
+Assignment-2_Theseus-and-Minotaur/obj/Debug/netcoreapp2.1/Assignment-2_Theseus-and-Minotaur.assets.cache
+Assignment-2_Theseus-and-Minotaur/obj/Debug/netcoreapp2.1/Assignment-2_Theseus-and-Minotaur.csproj.CoreCompileInputs.cache
+*.ide-shm
+Assignment-2_Theseus-and-Minotaur/obj/Debug/netcoreapp2.1/Assignment-2_Theseus-and-Minotaur.csproj.CoreCompileInputs.cache
+.vs/Assignment-2_Theseus-and-Minotaur/v15/Server/sqlite3/storage.ide-wal
+.vs/Assignment-2_Theseus-and-Minotaur/v15/Server/sqlite3/storage.ide-shm
+.vs/Assignment-2_Theseus-and-Minotaur/DesignTimeBuild/.dtbcache
+*.cache
+*.ide-wal
+*.ide-wal
+*.ide-shm
