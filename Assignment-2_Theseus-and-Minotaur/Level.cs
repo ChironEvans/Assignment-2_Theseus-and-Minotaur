@@ -26,11 +26,9 @@ namespace Assignment_2_Theseus_and_Minotaur
             for (int i = 0; i < specialsMax * step; i += step)
             {
                 string curr = newLevelString.Substring(i, 4);
-                int split1 = int.Parse(curr.Substring(0, 2));
-                int split2 = int.Parse(curr.Substring(2, 2));
                 int[] specialCoords = new int[2];
-                specialCoords[0] = split1;
-                specialCoords[1] = split2;
+                specialCoords[0] = int.Parse(curr.Substring(0, 2));
+                specialCoords[1] = int.Parse(curr.Substring(2, 2));
                 specials[i/step] = specialCoords;
             }
             int currY = 0;
@@ -41,17 +39,9 @@ namespace Assignment_2_Theseus_and_Minotaur
                 {
                     string curr = row.Substring(s, 4);
                     bool[] currWalls = new bool[4];
-                    char[] chars = curr.ToCharArray();
-                    for (int j = 0; j < chars.Length; j++)
+                    for (int j = 0; j < curr.Length; j++)
                     {
-                        if (chars[j] == '0')
-                        {
-                            currWalls[j] = false;
-                        }
-                        if (chars[j] == '1')
-                        {
-                            currWalls[j] = true;
-                        }
+                        currWalls[j] = int.Parse(curr[j].ToString()) != 0;
                     }
                     FloorTile newTile = new Square(currY, s / step, currWalls);
                     LevelBoard[currY,s / step] = newTile;
@@ -73,19 +63,15 @@ namespace Assignment_2_Theseus_and_Minotaur
             Cursor exitCursor;
             exitCursor = new Cursor(specials[2][0], specials[2][1]);
             FetchAt(exitCursor).TileExtra = new Exit();
-
         }
 
         internal Cursor FindExit()
         {
-            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            foreach(FloorTile tile in LevelBoard)
             {
-                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                if (tile.SpecialType == new Exit().Name)
                 {
-                    if (LevelBoard[i, j].SpecialType == new Exit().Name)
-                    {
-                        return new Cursor(i, j);
-                    }
+                    return new Cursor(tile.yPos, tile.xPos);
                 }
             }
             throw new ExitNotExist();
@@ -100,14 +86,11 @@ namespace Assignment_2_Theseus_and_Minotaur
 
         public Cursor FindTheseus()
         {
-            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            foreach (FloorTile tile in LevelBoard)
             {
-                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                if (tile.Theseus == true)
                 {
-                    if (LevelBoard[i,j].Theseus == true)
-                    {
-                        return new Cursor(i,j);
-                    }
+                    return new Cursor(tile.yPos, tile.xPos);
                 }
             }
             return null;
@@ -115,17 +98,14 @@ namespace Assignment_2_Theseus_and_Minotaur
 
         public Cursor FindMinotaur()
         {
-            for (int i = 0; i < LevelBoard.GetLength(0); i++)
+            foreach (FloorTile tile in LevelBoard)
             {
-                for (int j = 0; j < LevelBoard.GetLength(1); j++)
+                if (tile.Minotaur == true)
                 {
-                    if (LevelBoard[i,j].Minotaur)
-                    {
-                        return new Cursor(i,j);
-                    }
+                    return new Cursor(tile.yPos, tile.xPos);
                 }
             }
-            throw new ExitNotExist();
+            return null;
         }
 
 

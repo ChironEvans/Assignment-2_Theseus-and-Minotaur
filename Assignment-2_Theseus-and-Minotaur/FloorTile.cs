@@ -4,8 +4,8 @@ namespace Assignment_2_Theseus_and_Minotaur
 {
     public abstract class FloorTile
     {
-        protected int xPos;
-        protected int yPos;
+        public int xPos;
+        public int yPos;
         protected char image;
         public bool Top;
         public bool Right;

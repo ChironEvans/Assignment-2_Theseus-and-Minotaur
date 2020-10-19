@@ -31,8 +31,7 @@ namespace Assignment_2_Theseus_and_Minotaur
         {
             if (AllLevelNames.Contains(levelName))
             {
-                int i = AllLevelNames.IndexOf(levelName);
-                CurrentLevel = AllMyLevels[i];
+                CurrentLevel = AllMyLevels[AllLevelNames.IndexOf(levelName)];
                 CurrentLevelName = levelName;
                 LevelWidth = CurrentLevel.LevelW;
                 LevelHeight = CurrentLevel.LevelH;
@@ -55,7 +54,6 @@ namespace Assignment_2_Theseus_and_Minotaur
                 if(CurrentLevel.MoveTarget(theseusPos, dir))
                 {
                     MovePlus();
-
                 }
             }
             CheckTheseusWon();
@@ -93,7 +91,6 @@ namespace Assignment_2_Theseus_and_Minotaur
             {
                 Cursor minoPos = CurrentLevel.FindMinotaur();
                 int diffX = minoPos.GetXPos - theseusPos.GetXPos;
-                int diffY = minoPos.GetYPos - theseusPos.GetYPos;
                 if (diffX == 0)
                 {
                     if(MoveOnY(minoPos, theseusPos) == false)
@@ -108,7 +105,6 @@ namespace Assignment_2_Theseus_and_Minotaur
                         MoveOnY(minoPos, theseusPos);
                     }
                 }
-                Cursor newMinoPos = CurrentLevel.FindMinotaur();
                 CheckMinotaurWon();
             }
         }
@@ -143,7 +139,6 @@ namespace Assignment_2_Theseus_and_Minotaur
         // Check whether the minotaur has killed theseus
         private void CheckMinotaurWon()
         {
-            Cursor theseusPos = CurrentLevel.FindTheseus();
             if (CurrentLevel.FindTheseus() == null)
             {
                 HasMinotaurWon = true;
@@ -161,16 +156,6 @@ namespace Assignment_2_Theseus_and_Minotaur
             Square tileAt = CurrentLevel.FetchAt(newCursor);
             return tileAt;
         }        
-
-        public void RebuildLevelNames()
-        {
-            List<string> LevelNames = new List<string>();
-            foreach(Level level in AllMyLevels)
-            {
-                LevelNames.Add(level.LevelName);
-            }
-            AllLevelNames = LevelNames;
-        }
 
         // Get all the level names
         public List<string> LevelNames()
