@@ -96,31 +96,47 @@ namespace Assignment_2_Theseus_and_Minotaur
                 int diffY = minoPos.GetYPos - theseusPos.GetYPos;
                 if (diffX == 0)
                 {
-                    switch (diffY < 0)
+                    if(MoveOnY(minoPos, theseusPos) == false)
                     {
-                        case false:
-                            CurrentLevel.MoveTarget(minoPos, Moves.UP);
-                            break;
-                        case true:
-                            CurrentLevel.MoveTarget(minoPos, Moves.DOWN);
-                            break;
+                        MoveOnX(minoPos, theseusPos);
                     }
                 }
                 else
                 {
-                    switch (diffX < 0)
+                    if(MoveOnX(minoPos, theseusPos) == false)
                     {
-                        case false:
-                            CurrentLevel.MoveTarget(minoPos, Moves.LEFT);
-                            break;
-                        case true:
-                            CurrentLevel.MoveTarget(minoPos, Moves.RIGHT);
-                            break;
+                        MoveOnY(minoPos, theseusPos);
                     }
-                    
                 }
                 Cursor newMinoPos = CurrentLevel.FindMinotaur();
                 CheckMinotaurWon();
+            }
+        }
+        
+        private bool MoveOnX(Cursor minoPos, Cursor theseusPos)
+        {
+            int diffX = minoPos.GetXPos - theseusPos.GetXPos;
+            switch (diffX < 0)
+            {
+                case false:
+                    return CurrentLevel.MoveTarget(minoPos, Moves.LEFT);
+                case true:
+                    return CurrentLevel.MoveTarget(minoPos, Moves.RIGHT);
+                default:
+                    return false;
+            }
+        }
+        private bool MoveOnY(Cursor minoPos, Cursor theseusPos)
+        {
+            int diffY = minoPos.GetYPos - theseusPos.GetYPos;
+            switch (diffY < 0)
+            {
+                case false:
+                    return CurrentLevel.MoveTarget(minoPos, Moves.UP);
+                case true:
+                    return CurrentLevel.MoveTarget(minoPos, Moves.DOWN);
+                default:
+                    return false;
             }
         }
 

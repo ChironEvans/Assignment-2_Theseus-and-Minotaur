@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Cursor">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAABAAAAAIAAQAAAAQAAAAA=</HashCode>
+      <FileName>Cursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Exit">
+    <Position X="12.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.FloorTile">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAQAAAAAAAAAAEAABQAAAAEAIIAYAUKACAAQAAAAA=</HashCode>
+      <FileName>FloorTile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OnTile" />
+      <Property Name="TileExtra" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Game">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCQgAAAAgAAQGKAAQAAQAAAAAAAFYAAIAEAMACAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="CurrentLevel" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="AllMyLevels" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Level">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQIAAAAAAAQEAIAAAAAAAhAAAACBAEAAAAABAAE=</HashCode>
+      <FileName>Level.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="LevelBoard" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.ExitNotExist">
+    <Position X="4.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MinoNotExist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Minotaur">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="Assignment_2_Theseus_and_Minotaur.Moveable" ManuallyRouted="true">
+      <Path>
+        <Point X="10" Y="1.75" />
+        <Point X="10" Y="1.116" />
+        <Point X="11" Y="1.116" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Minotaur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Moveable">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Moveable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Program">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Special">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Special.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Square">
+    <Position X="9.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Square.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.Theseus">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="Assignment_2_Theseus_and_Minotaur.Moveable" ManuallyRouted="true">
+      <Path>
+        <Point X="10" Y="1.75" />
+        <Point X="10" Y="1.116" />
+        <Point X="9" Y="1.116" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Theseus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment_2_Theseus_and_Minotaur.TheseusNotExist">
+    <Position X="6.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TheseusNotExist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Assignment_2_Theseus_and_Minotaur.Moves">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Moves.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
